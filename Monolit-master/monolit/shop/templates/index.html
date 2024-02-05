@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Главная</title>{% endblock %}
+{% block content %}
+    <h1>Добро пожаловать!</h1>
+<hr>
+
+    <h3 style="color: MediumSlateBlue ">Поиск товара</h3>
+    <form action="{% url 'result' %}" method="get">
+        <input name="search" type="text" placeholder="Найти...">
+    </form>
+    <hr>
+
+    <h3 style="color:LightSteelBlue">Последние 5 товаров</h3>
+    {% for product in object_list %}
+        <h4>{{ product.title }}</h4>
+        <p><img src="{{ product.img.url }}" style="height: 200px; width: 200px"></p>
+        <br><br>
+        <a href="{% url 'details' product.pk %}"  style=" margin-top:10px "><p>Подробнее о товаре</p></a>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
