@@ -54,10 +54,10 @@ class LoginViewMy(LoginView):
     def login(self):
         return render(self, 'user/login.html')
 class LogoutView(LogoutView):
-    form_class = AuthenticationForm
+    form_class = CustomUser
     template_name = 'user/logout.html'
     success_url = reverse_lazy('index')
-    def login(self):
+    def logout(self):
         return render(self, 'user/logout.html')
 
 class ProfileView(UpdateView):

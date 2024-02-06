@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}<title>Услуги/Продукты</title>{% endblock %}
+{% block title %}<title>Товары</title>{% endblock %}
 {% block content %}
     <h3>Поиск</h3>
+
     <form action="{% url 'result' %}" method="get">
-        <input name="search" type="text" placeholder="Найти...">
+        <input name="search" type="text" placeholder="Поиск ...">
     </form>
     <hr>
 
     {% for product in object_list %}
+        <p><img src="{{ product.img.url }}" style="height:300px; width: 300px;"></p>
+        <br>
         <h4>{{ product.title }}</h4>
-        <p><img src="{{ product.img.url }}" style="height: 200px; width: 200px"></p>
-        <br><br>
         <a href="{% url 'details' product.pk %}"><p>Перейти к товару</p></a>
         <hr>
     {% endfor %}

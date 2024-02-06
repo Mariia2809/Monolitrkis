@@ -11,11 +11,11 @@
     </form>
     <hr>
 
-    <h3 style="color:LightSteelBlue">Последние 5 товаров</h3>
+    <h3 style="color:LightSteelBlue; margin-bottom:20px">Последние 5 товаров</h3>
     {% for product in object_list %}
+        <p><img src="{{ product.img.url }}" style="height: 300px; width: 300px"></p>
+        <br>
         <h4>{{ product.title }}</h4>
-        <p><img src="{{ product.img.url }}" style="height: 200px; width: 200px"></p>
-        <br><br>
         <a href="{% url 'details' product.pk %}"  style=" margin-top:10px "><p>Подробнее о товаре</p></a>
         <hr>
     {% endfor %}

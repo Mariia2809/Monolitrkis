@@ -3,5 +3,13 @@
 {% block content %}
 <h2>Информация о нас: </h2><br>
 <p>Телефон: +7 999 99 99</p>
-<p>Электронная почта: firma@gmail.com</p>
+<p>Электронная почта: firma@gmail.com</p><br>
+  <h2 style="color:black">Наши товары:</h2>
+    {% for product in object_list %}
+
+        <p><img src="{{ product.img.url }}" style="height: 300px; width: 300px; margin-top: 10px; margin-bottom: -50px"></p><br><br>
+        <h4>{{ product.title }}</h4>
+        <br><br>
+        <hr>
+    {% endfor %}
 {% endblock %}
